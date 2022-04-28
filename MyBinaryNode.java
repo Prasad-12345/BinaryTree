@@ -12,5 +12,5 @@ public class MyBinaryNode<K extends Comparable<K>> {
 		this.key = key;
 		this.left = left;
 		this.right = right;
-	}	
+	}
 }
