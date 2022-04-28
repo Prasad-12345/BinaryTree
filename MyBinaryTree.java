@@ -1,7 +1,7 @@
 package BinarySearchTree;
 /*
  * Author:Prasad
- * Ability to create the BST by adding 56 and then adding 30 & 70
+ * Ability to create the BST 
  */
 public class MyBinaryTree<K extends Comparable<K>> {
 	private MyBinaryNode<K> root;
@@ -43,4 +43,24 @@ public class MyBinaryTree<K extends Comparable<K>> {
 		return current == null ? 0 : 1 + this.getSizeRecursive(current.left) 
 									+ this.getSizeRecursive(current.right);
 	}	
+	
+	/*
+	 * This method will search entered value in tree
+	 */
+	public boolean searchTreeRecursively(MyBinaryNode<K> current, K key) {
+		if(current == null) {
+			return false;
+		}
+		int compareResult = key.compareTo(current.key);
+		if (compareResult == 0) {
+			return true;
+		}
+		else {
+			return compareResult < 0 ? searchTreeRecursively(current.left, key) : searchTreeRecursively(current.right, key);
+		}
+	}
+	
+	public boolean  searchTree(K key) {
+		return this.searchTreeRecursively(root, key);
+	}
 }
